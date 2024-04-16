@@ -10,8 +10,8 @@ class Config
 {
 public:
 
-    string input;
-    string param_input = "C:/Users/admin/Downloads/cumulative-drone-main/cumulative-drone-main/0.instances/analysis/params-0.txt";
+    string input = "0-0-requestInfo.txt";
+    string param_input = "params-0.txt";
     string output;
     double time_limit = 30.0;
     int max_iter = 10000;
@@ -110,8 +110,8 @@ public:
         //        cout << flush;
     }
 private:
-    bool found_input = false;
-    bool found_param_input = false;
+    bool found_input = true;
+    bool found_param_input = true;
     bool found_output = false;
     bool found_time_limit = true;
     bool found_max_iter = true;

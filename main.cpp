@@ -10,22 +10,9 @@ int main(int argc, char* argv[])
 {
     try {
         Config config(argc, argv);
-        //Utils::initRand(config.seed);
         Instance instance(config.input, config.param_input);
 
-        /*istringstream iss("0 - 0 - requestInfo.txt");
-        string id;
-        getline(iss, id, '-');
-        string depoSetting;
-        getline(iss, depoSetting, '-');
-
-        istringstream isss(instance.paramfileName);
-        string batteryID;
-        getline(isss, batteryID, '-');
-        getline(isss, batteryID, '-');
-        batteryID = batteryID[0];*/
-
-        string tauFile = "E:/ouput_get_tau.txt";
+        string tauFile = "ouput_get_tau.txt";
         ofstream outFile(tauFile);
         outFile << setw(10) << "request_id";
         outFile << setw(9) << "tau_in";

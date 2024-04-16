@@ -65,9 +65,9 @@ Instance::Instance(string instanceFile, string paramsFile)
         }
         //        cout << endl;
     }
-    for (int customer = 1; customer < getNum_nodes(); ++customer) {
+    /*for (int customer = 1; customer < getNum_nodes(); ++customer) {
         cout << dconfig->flightTime[customer].first << " " << dconfig->flightTime[customer].second << endl;
-    }
+    }*/
 }
 
 Instance::~Instance()
