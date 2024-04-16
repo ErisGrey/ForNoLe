@@ -11,9 +11,16 @@ int main(int argc, char* argv[])
     try {
         Config config(argc, argv);
         Instance instance(config.input, config.param_input);
-
+        cout << instance.num_nodes << endl;
         string tauFile = "ouput_get_tau.txt";
         ofstream outFile(tauFile);
+        
+        //IMPORTANT!!!!
+        int numdrone = 2; //change later, not fixed
+
+        outFile << "numNode" << "  " << instance.num_nodes - 1 << endl;
+        outFile << "numDrone" << " " << numdrone << endl;
+        outFile << "# DRONE FLIGHT TIME" << endl;
         outFile << setw(10) << "request_id";
         outFile << setw(9) << "tau_in";
         outFile << setw(9) << "tau_out";
@@ -38,6 +45,14 @@ int main(int argc, char* argv[])
             }
             
             outFile << v_text;
+            outFile << endl;
+        }
+
+        outFile << "# TRUCK TIME MATRIX" << endl;
+        for (int node = 0; node < instance.num_nodes; ++node) {
+            for (int node2 = 0; node2 < instance.num_nodes; ++node2) {
+                outFile << setprecision(2) << instance.dist_truck[node][node2] << " ";
+            }
             outFile << endl;
         }
         cout << "DONE " << instance.instanceName << endl;

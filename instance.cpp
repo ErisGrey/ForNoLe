@@ -152,6 +152,25 @@ void Instance::initialize()
             dist_drone[i][j] = euc_d;
         }
     }
+
+    //fake truck (will change later)
+    dist_truck.resize(num_nodes);
+    for (int i = 0; i < num_nodes; i++)
+        dist_truck[i].resize(num_nodes);
+
+    for (int i = 0; i < num_nodes; i++) {
+        for (int j = 0; j < num_nodes; j++) {
+            float euc_d = pow(pow(x[i] - x[j], 2) + pow(y[i] - y[j], 2), 0.5);
+            dist_truck[i][j] = euc_d * 450 * 402.3;
+        }
+    }
+
+    //for (int i = 0; i < num_nodes; i++) {
+    //    for (int j = 0; j < num_nodes; j++) {
+    //        cout << dist_truck[i][j] << " ";
+    //    }
+    //    cout << endl;
+    //}
 }
 
 double Instance::tdrone(const int& customer) const
